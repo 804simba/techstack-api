@@ -23,6 +23,8 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
             "WHERE a.name LIKE CONCAT('%',:keyword,'%') " +
             "OR a.accountNumber LIKE CONCAT('%',:keyword,'%') " +
             "OR a.type LIKE CONCAT('%',:keyword,'%') " +
-            "OR p.name LIKE CONCAT('%',:keyword,'%') ")
+            "OR p.name LIKE CONCAT('%',:keyword,'%') " +
+            "OR p.currency LIKE CONCAT('%',:keyword,'%') " +
+            "ORDER BY a.id DESC")
     List<Account> searchAccounts(String keyword);
 }

@@ -23,4 +23,9 @@ public interface ApiRoute {
         String BASE = ApiRoute.BASE + "/products";
         String ALL = "/all";
     }
+
+    interface Auth {
+        String BASE = ApiRoute.BASE + "/auth";
+        String LOGIN = "/login";
+    }
 }

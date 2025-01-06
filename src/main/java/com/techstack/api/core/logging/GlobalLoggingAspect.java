@@ -103,10 +103,11 @@ public class GlobalLoggingAspect {
       Map<String, Object> errorLog = new HashMap<>();
       errorLog.put("error", ex.getMessage());
       errorLog.put("cause", ex.getCause() != null ? ex.getCause().getMessage() : null);
-      errorLog.put("stack_trace", Arrays.toString(ex.getStackTrace()));
+      errorLog.put("stack_trace", ex.getStackTrace());
 
       logger.error("\n==================== ERROR ====================\n{}",
               objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(errorLog));
+      logger.error("Exception: {}, {}", ex.getMessage(), ex.getStackTrace());
     } catch (Exception e) {
       logger.error("Failed to log exception: {}", e.getMessage());
     }
