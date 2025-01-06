@@ -3,8 +3,14 @@ package com.techstack.api.payload.request.user;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.techstack.api.payload.data.AddressData;
 import jakarta.validation.constraints.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Data
 public class CreateAppUserRequest {
     @NotBlank(message = "Name is required")
