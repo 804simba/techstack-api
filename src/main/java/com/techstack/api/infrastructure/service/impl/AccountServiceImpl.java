@@ -119,6 +119,7 @@ public class AccountServiceImpl implements AccountService {
                         .build());
     }
 
+    @Transactional(readOnly = true)
     @Override
     public ApiResponse<List<AccountData>> search(String keyword) {
         var accounts = accountRepository.searchAccounts(keyword);
