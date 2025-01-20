@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AuthenticationServiceImpl implements AuthenticationService {
     private final AuthenticationApi authenticationApi;
+
     @Override
     public ApiResponse<AuthenticationData> login(String email, String password) {
         try {

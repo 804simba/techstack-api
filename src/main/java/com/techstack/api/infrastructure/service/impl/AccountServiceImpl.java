@@ -29,10 +29,13 @@ public class AccountServiceImpl implements AccountService {
     private final ProductRepository productRepository;
     private final AppUserRepository appUserRepository;
     private final AccountServiceHelper accountServiceHelper;
+    private Integer counter = 0;
 
     @Transactional
     @Override
     public ApiResponse<AccountData> create(CreateAccountRequest request) {
+        counter++;
+        System.out.println("counter = " + counter);
         var existingUser = appUserRepository.findAppUserById(request.getUserId());
         if (existingUser.isEmpty()) {
             return ApiResponse.notFound("User not found");
